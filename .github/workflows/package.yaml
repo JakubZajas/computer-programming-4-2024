@@ -2,7 +2,7 @@ name: Create package
 on:
   push:
     tags:
-      - "v.*.*.*" 
+      - "v*.*.*" 
 jobs:
   BuildPackage:
     runs-on: ubuntu-latest
