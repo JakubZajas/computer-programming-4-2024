@@ -1,21 +1,21 @@
-name: Create package
+ame: Create package
 on:
   push:
     tags:
-      - "v*.*.*" 
+      - "v*.*.*"
 jobs:
   BuildPackage:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: "Checkout Repo"
+      - name: "Checkout repo"
         uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'corretto'
-      - name: "Run maven tests"      
+          distribution: 'corretto' 
+      - name: "Run maven test"
         run: mvn -DskipTests package
       - run: ls -la target/
       - run: mv target/*.jar target/app.jar
@@ -24,4 +24,4 @@ jobs:
           artifacts: "target/app.jar"
           body: "My release ${{ github.ref }}"
           name: "Release candidate ${{ github.ref }}"
-      
+        
