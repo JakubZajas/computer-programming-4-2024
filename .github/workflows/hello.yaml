@@ -6,3 +6,10 @@ jobs:
     steps:
       - name: "My first command"
         run: echo "Kuba"
+        
+      - run: echo "The name of your branch is &{{ github.ref }} and sth else to add "
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: "show structure"
+        run: tree ./
+      - run: echo "It works"
