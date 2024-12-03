@@ -1,4 +1,4 @@
-ame: Create package
+name: Create package
 on:
   push:
     tags:
